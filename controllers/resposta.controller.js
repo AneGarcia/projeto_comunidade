@@ -13,6 +13,7 @@ exports.create = (req, res) => {
   const resposta = {
     conteudo: req.body.conteudo,
     data_criacao: req.body.data,
+    imagem: req.body.imagem,
     id_usuario: req.body.usuarioId,
     id_post: req.body.postId,
   };

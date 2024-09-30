@@ -4,6 +4,7 @@ module.exports = (sequelize, Sequelize) => {
         {
             conteudo: {type: Sequelize.STRING},
             data_criacao: {type: Sequelize.DATE},
+            imagem: {type: Sequelize.STRING},
         },
         {freezeTableName: true}
     );
