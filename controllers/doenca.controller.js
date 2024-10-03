@@ -75,3 +75,18 @@ exports.delete = (req, res) => {
         res.status(500).send({ message: err.message || "Erro ao excluir doença" })
       );
 };
+
+exports.deleteAll = (req, res) => {
+  Doenca.destroy({
+    where: {},
+    truncate: false,
+  })
+    .then((nums) => {
+      res.send({ message: `${nums} doenças foram excluídas` });
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({ message: err.message || "Erro ao excluir doenças" });
+    });
+};

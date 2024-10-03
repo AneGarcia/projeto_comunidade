@@ -35,6 +35,25 @@ exports.findAll = (req, res) => {
       );
  };
 
+ exports.findOne = (req, res) => {
+  const id = req.params.id;
+  Resposta.findByPk(id)
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: "Não possível encontrar uma resposta com o id" + id,
+        });
+      }
+    })
+    .catch((err) =>
+      res
+        .status(500)
+        .send({ message: err.message || "Erro ao buscar por usuario" })
+    );
+};
+
  exports.update = (req, res) => {
     const _id = req.params.id;
     Resposta.update(req.body, { where: { id: _id } })
@@ -67,4 +86,19 @@ exports.delete = (req, res) => {
       .catch((err) =>
         res.status(500).send({ message: err.message || "Erro ao excluir resposta" })
       );
+};
+
+exports.deleteAll = (req, res) => {
+  Resposta.destroy({
+    where: {},
+    truncate: false,
+  })
+    .then((nums) => {
+      res.send({ message: `${nums} respostas foram excluídas` });
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({ message: err.message || "Erro ao excluir respostas" });
+    });
 };

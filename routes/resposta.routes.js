@@ -35,8 +35,10 @@ module.exports = (app) => {
 
      router.post("/", respostas.create);
      router.get("/", respostas.findAll);
+     router.get("/:id", respostas.findOne);
      router.put("/:id", respostas.update);
      router.delete("/:id", respostas.delete);
+     router.delete("/:id", respostas.deleteAll);
 
      app.use("/respostas", router);
 };

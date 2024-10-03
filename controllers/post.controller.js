@@ -79,3 +79,18 @@ exports.findAll = (req, res) => {
         res.status(500).send({ message: err.message || "Erro ao deletar post" })
       );
   };
+
+  exports.deleteAll = (req, res) => {
+    Post.destroy({
+      where: {},
+      truncate: false,
+    })
+      .then((nums) => {
+        res.send({ message: `${nums} posts foram excluídos` });
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .send({ message: err.message || "Erro ao excluir posts" });
+      });
+  };
