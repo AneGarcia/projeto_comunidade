@@ -38,7 +38,7 @@ module.exports = (app) => {
      router.get("/:id", respostas.findOne);
      router.put("/:id", respostas.update);
      router.delete("/:id", respostas.delete);
-     router.delete("/:id", respostas.deleteAll);
+     router.delete("/", respostas.deleteAll);
 
      app.use("/respostas", router);
 };
