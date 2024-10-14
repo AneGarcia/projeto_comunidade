@@ -7,8 +7,11 @@ module.exports = (app) => {
     var router = require("express").Router();
 
      var storage = multer.diskStorage({
-        destinatio: function (req, file, cb){
+        destination: function (req, file, cb){
             cb(null, "uploads/usuario");
+        },
+        filename: function (req, file, cb) {
+            cb(null, Date.now() + path.extname(file.originalname));
         },
      });
 

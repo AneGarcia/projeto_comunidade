@@ -10,9 +10,9 @@ exports.create = (req, res) => {
       nome: req.body.nome,
       email: req.body.email,
       senha: bcrypt.hashSync(req.body.senha, 10),
-      tipo_usuario: req.body.tipo,
-      data_nascimento: req.body.data,
-      foto_perfil: req.body.foto,
+      tipo: req.body.tipo,
+      dataNascimento: req.body.dataNascimento,
+      foto: req.body.foto,
     };
   
     Usuario.create(usuario)

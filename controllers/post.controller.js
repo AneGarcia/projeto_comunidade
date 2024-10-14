@@ -6,10 +6,10 @@ exports.create = (req, res) => {
     const post = {
         titulo: req.body.titulo,
         conteudo: req.body.conteudo,
-        data_criacao: req.body.data,
+        dataCriacao: req.body.dataCriacao,
         categoria: req.body.categoria,
         imagem: req.body.imagem,
-        usuario_id: req.body.usuarioId,
+        usuarioId: req.body.usuarioId,
     };
 
     Post.create(post)

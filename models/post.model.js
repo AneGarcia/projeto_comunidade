@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
         {
             titulo: {type: Sequelize.STRING},
             conteudo: {type: Sequelize.STRING},
-            data_criacao: {type: Sequelize.DATE},
+            dataCriacao: {type: Sequelize.DATE},
             categoria: {type: Sequelize.STRING},
             imagem: {type: Sequelize.STRING},
         },
